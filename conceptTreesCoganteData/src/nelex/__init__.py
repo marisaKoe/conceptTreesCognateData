@@ -1,0 +1,4 @@
+import distance_matrices_levenshtein, distance_matrices_hamming, distance_matrices_nw
+from distance_matrices_levenshtein import nelex_compute_dm_levenshtein
+from distance_matrices_hamming import nelex_compute_dm_hamming
+from distance_matrices_nw import nelex_compute_dm_nw
