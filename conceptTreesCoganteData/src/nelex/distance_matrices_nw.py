@@ -22,7 +22,6 @@ def nelex_compute_dm_nw():
     
     ##for each meaning in the dict, get the list of languages
     for meaning, list_langs in L_m.items():
-        #if meaning == "Berg::N":
         ##create the distance matrix for this meaning and set the language pairs 0.0
         distance_matrix = defaultdict(lambda: defaultdict(float))
         combineList = list(itertools.product(list_langs,list_langs))
@@ -68,10 +67,6 @@ def nelex_compute_dm_nw():
 
 
 
-
-
-
-
 ####################computation methods#############################
 
 gp1 = -2.49302792222
@@ -93,8 +88,7 @@ def calculate_dc(l1_cc,l2_cc, l1_words, l2_words):
     :param l1_words:words for language 1
     :param l2_words:words for language 2
     '''
-    #print l1_cc, l2_cc, l1_words, l2_words
-    
+
     #reads the file with the ASJP sounds present in nelex
     f = open('input/sounds.txt')
     sounds = array([x.strip() for x in f.readlines()])
@@ -131,8 +125,7 @@ def calculate_dc(l1_cc,l2_cc, l1_words, l2_words):
             for word2 in l2_words:
                 if word2[1]==cc:
                     l2_cc_words.append(word2[0])
-            
-            #print l1_cc_words, l2_cc_words
+
             #compute the needleman wunsch score and alignment for the words of the languages
             dist = nw(l1_cc_words, l2_cc_words, lodict, gp1, gp2)
             
@@ -214,22 +207,6 @@ def nw(l1_words,l2_words,lodict,gp1,gp2):
     dist = 1.0 - (1.0/(1 + exp(-max(nw_dist))))
     return dist
     #return dp[-1,-1],alg,array([''.join(x) for x in array(alg).T])
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -20,8 +20,6 @@ def nelex_compute_dm_levenshtein():
     
     ##for each meanidn in the dict, get the list of languages
     for meaning, list_langs in L_m.items():
-        #print meaning
-        #if meaning == "Berg::N":
         ##create the distance matrix for this meaning and set the language pairs 0.0
         distance_matrix = defaultdict(lambda: defaultdict(float))
         combineList = list(itertools.product(list_langs,list_langs))
@@ -37,9 +35,9 @@ def nelex_compute_dm_levenshtein():
         for lang, cc_dict in data_matrix.items():
             ##get the list of cognate classes for the concept and the language
             lang_cc = m_lang_cc[meaning][lang]
-            ##get all the cogante classes for this meaning
+            ##get all the cognate classes for this meaning
             cc_keys = cc_dict.keys()
-            ##for each cogante class for the language, check if it is in keys and set to 1
+            ##for each cognate class for the language, check if it is in keys and set to 1
             for cc in lang_cc:
                 if cc in cc_keys:
                     data_matrix[lang][cc] = 1
@@ -81,14 +79,11 @@ def calculate_dc(l1_cc,l2_cc, l1_words, l2_words):
     :param l1_words:words for language 1
     :param l2_words:words for language 2
     '''
-    #print l1_cc, l2_cc, l1_words, l2_words
-    
-    
     
     list_dist = []
     n_l1l2 = 0.0
     for cc, l1_val in l1_cc.items():
-        ##if both values are 0 (absence of cogante class for the language) the distance is 0
+        ##if both values are 0 (absence of cognate class for the language) the distance is 0
         if l1_val==0 and l2_cc[cc]==0:
             
             list_dist.append(0.0)
@@ -97,7 +92,7 @@ def calculate_dc(l1_cc,l2_cc, l1_words, l2_words):
             ##get the list of words for each language
             l1_cc_words = []
             l2_cc_words=[]
-            ##filter out the words in the same cogante class for the computation
+            ##filter out the words in the same cognate class for the computation
             for word in l1_words:
                 if word[1] == cc:
                     l1_cc_words.append(word[0])
@@ -116,7 +111,7 @@ def calculate_dc(l1_cc,l2_cc, l1_words, l2_words):
             list_dist.append(1.0)
             n_l1l2 += 1
             
-    ##compute the formular and return the distance
+    ##compute the formula and return the distance
     end_dist = sum(list_dist)/n_l1l2
     return end_dist
 

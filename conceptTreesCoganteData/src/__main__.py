@@ -4,7 +4,6 @@ Created on 12.07.2017
 @author: marisakoe
 '''
 
-from dyen import dyen_compute_dm_levenshtein, dyen_compute_dm_hamming
 from nelex import nelex_compute_dm_levenshtein, nelex_compute_dm_hamming, nelex_compute_dm_nw
 
 import glob
@@ -42,27 +41,7 @@ def reconstruct_trees_phy(mtx_folder, outputFolder):
         ape.write_tree(tree1, file=outputFolder+"fastme/"+concept+"+fastmeTree.nwk")
 
 if __name__ == '__main__':
-    
-    ##compute the matrices for the dyen data
-    #dyen_compute_dm_levenshtein()
-    #dyen_compute_dm_hamming()
-    ##compute the trees
-    ##levenshtein
-#     lev_mtx = "output/dyen/dstmtxLev/*.phy"
-#     outputLev = "output/dyen/conceptTrees/Levenshtein/"
-#     reconstruct_trees_phy(lev_mtx, outputLev)
-    ##hamming
-#     ham_mtx = "output/dyen/dstmtxHam/hamming/*.phy"
-#     outputHam = "output/dyen/conceptTrees/Hamming/"
-#     reconstruct_trees_phy(ham_mtx, outputHam)
-#     #list_matrices = glob.glob("../output/dyen/dstmtxHam/hamming/*.phy")
-#     ##normalized hamming
-#     normham_mtx = "output/dyen/dstmtxHam/normHamming/*.phy"
-#     outputNormHam = "output/dyen/conceptTrees/NormHamming/"
-#     reconstruct_trees_phy(normham_mtx, outputNormHam)
-    
-    
-    
+ 
     
     ##compute matrices for nelex
     

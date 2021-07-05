@@ -84,7 +84,6 @@ def compute_dm(data_matrix, langs, fileName, version):
                 distance_matrix[pair[0]][pair[1]] = dis
     
     ##write the matrix
-    #print fileName
     write_dm(distance_matrix, fileName)
     #return distance_matrix
     
